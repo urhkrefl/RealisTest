@@ -1,0 +1,47 @@
+﻿@page
+@model RealisTest.Pages.TestInputs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Table of inputs</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TestInput[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestInput[0].inputDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestInput[0].inputTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TestInput) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inputDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inputTime)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@page
+@model RealisTest.Pages.TestInputs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Input the desired info</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TestInput.Name" class="control-label"></label>
+                <input asp-for="TestInput.Name" class="form-control" />
+                <span asp-validation-for="TestInput.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestInput.inputDate" class="control-label"></label>
+                <input asp-for="TestInput.inputDate" class="form-control" />
+                <span asp-validation-for="TestInput.inputDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestInput.inputTime" class="control-label"></label>
+                <input asp-for="TestInput.inputTime" class="form-control" />
+                <span asp-validation-for="TestInput.inputTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
